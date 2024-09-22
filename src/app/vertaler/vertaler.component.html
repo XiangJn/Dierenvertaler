@@ -1,6 +1,5 @@
 <div class="container">
     <h1>Dierenvertaler</h1>
-
     <form (ngSubmit)="onSubmit()">
         <div class="textarea-wrapper">
             <div class="textarea-container">
@@ -10,7 +9,9 @@
             </div>
             <div class="textarea-container">
                 <p>Vertaling:</p>
-                <textarea id="translation" #translation class="parkiet" minlength="1" rows="4" cols="50" disabled></textarea>
+                <div class="translation">
+                    <div id="translation" ></div>
+                </div>
             </div>
         </div>
         <div class="select-wrapper">

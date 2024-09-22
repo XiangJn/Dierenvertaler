@@ -20,6 +20,13 @@ textarea {
   resize: none;
   height: 150px;
 }
+.translation {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  height: 150px;
+}
 
 .textarea-wrapper {
   display: flex;
@@ -101,7 +108,10 @@ button {
 }
 
 .tjilp {
-  font-style: italic;
+  display: block;
+  // font-style: italic;
+  word-wrap: break-word;
+  color: green;
 }
 
 .papegaai {
@@ -113,7 +123,7 @@ button {
 @media (min-width: 768px) {
   .parkiet {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    // grid-template-columns: repeat(10, 1fr);
     grid-gap: 5px;
   }
 }

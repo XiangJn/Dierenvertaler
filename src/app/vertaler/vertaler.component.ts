@@ -9,10 +9,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './vertaler.component.scss'
 })
 export class VertalerComponent {
-  translate: string = "";
+  translate: string = "Dit is een test. alles goed met jou? met mij wel! hahah.";
   translateOg: string = "taal";
   translateTo: string = "labrador";
-  translation: string = " ";
+  translation: string = "";
   drunk = false
   wrongInput = "Input komt niet overeen met geselecteerde taal."
   cnr = "Taal kon niet automatisch worden herkend"
@@ -229,8 +229,10 @@ export class VertalerComponent {
         this.words.forEach((word) => {
           if (/^[aeiouAEIOU]/.test(word)) {
             if (this.punctuations.test(word.slice(-1))) {
+              // this.translation += ('<span>tjilp</span>' + word.slice(-1) + " ")
               this.translateForm("tjilp" + word.slice(-1) + " ")
             } else {
+              // this.translation += ('<span>tjilp</span>')
               this.translateForm("tjilp ")
             }
           } else {
@@ -246,12 +248,12 @@ export class VertalerComponent {
         document.getElementById('translation')?.classList.add('papegaai')
         this.translation = "Ik praat je na: "
         this.words.forEach((word) => {
-          // if (this.punctuations.test(word)) {
-          //   this.translation += "<br> Ik praat je na: "
-          //   this.translateForm(word + " ")
-          // } else {
-          this.translateForm(word + " ")
-          // }
+          if (this.punctuations.test(word)) {
+            this.translateForm(word)
+            this.translation += "<br> Ik praat je na: "
+          } else {
+            this.translateForm(word + " ")
+          }
         })
         return;
 
