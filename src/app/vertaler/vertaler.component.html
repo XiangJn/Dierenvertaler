@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()">
+<textarea id="translateText"  [(ngModel)]="translate" name="translateText" minlength="1" rows="4" cols="50"></textarea>
+<p>Van</p>
+<select name="translateOg" id="translateOg" (click)="changeSelect()"  [(ngModel)]="translateOg">
+    <option value="taal">Taal herkennen</option>
+    <option value="mens">Mens</option>
+    <option value="labrador">Labrador</option>
+    <option value="poedel">Poedel</option>
+    <option value="parkiet">Parkiet</option>  
+</select>
+<p>naar</p>
+<select name="translateTo" id="translateTo" [(ngModel)]="translateTo">
+    <option value="labrador">Labrador</option>
+    <option value="poedel">Poedel</option>
+    <option value="parkiet">Parkiet</option>
+    <option value="papegaai">Papegaai</option>
+</select>
+<input name="drunk" type="checkbox" [(ngModel)]="drunk">Ik ben zo dronken!!!<br>
+
+
+<button>Vertalen</button>
+
+</form>
+<p id="translation"></p>
