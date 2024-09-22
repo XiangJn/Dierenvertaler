@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './vertaler.component.scss'
 })
 export class VertalerComponent {
-  translate: string = "Dit is een test. alles goed met jou? met mij wel! hahah.";
+  translate: string = "";
   translateOg: string = "taal";
   translateTo: string = "labrador";
   translation: string = "";
