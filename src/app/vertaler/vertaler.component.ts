@@ -213,6 +213,9 @@ export class VertalerComponent {
             this.translateForm("woef ")
           }
         })
+        if (this.drunk) {
+          this.drunkMode()
+        }
         return;
       case 'poedel':
         document.getElementById('translation')?.classList.add('poedel')
@@ -223,6 +226,9 @@ export class VertalerComponent {
             this.translateForm("woefie ")
           }
         })
+        if (this.drunk) {
+          this.drunkMode()
+        }
         return;
       case 'parkiet':
         document.getElementById('translation')?.classList.add('parkiet')
@@ -243,6 +249,9 @@ export class VertalerComponent {
             }
           }
         })
+        if (this.drunk) {
+          this.drunkMode()
+        }
         return;
       case 'papegaai':
         document.getElementById('translation')?.classList.add('papegaai')
@@ -255,6 +264,9 @@ export class VertalerComponent {
             this.translateForm(word + " ")
           }
         })
+        if (this.drunk) {
+          this.drunkMode()
+        }
         return;
 
     }
