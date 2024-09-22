@@ -76,7 +76,7 @@ export class VertalerComponent {
     this.words = this.words.filter(str => str.trim() !== '');
     var rightSelect = true
     //clears the styling of the translation
-    var styleTrans=document.getElementById('translation')
+    var styleTrans = document.getElementById('translation')
     if (styleTrans) {
       while (styleTrans.classList.length > 0) {
         styleTrans.classList.remove(styleTrans.classList.item(0)!);
@@ -130,7 +130,7 @@ export class VertalerComponent {
         }
     }
   }
-//search the language which is being inputted
+  //search the language which is being inputted
   recognizeL(): void {
     var labrador = true
     var poedel = true
@@ -243,9 +243,15 @@ export class VertalerComponent {
         })
         return;
       case 'papegaai':
+        document.getElementById('translation')?.classList.add('papegaai')
         this.translation = "Ik praat je na: "
         this.words.forEach((word) => {
+          // if (this.punctuations.test(word)) {
+          //   this.translation += "<br> Ik praat je na: "
+          //   this.translateForm(word + " ")
+          // } else {
           this.translateForm(word + " ")
+          // }
         })
         return;
 
@@ -258,7 +264,7 @@ export class VertalerComponent {
     this.translationShow()
 
   }
-//applies the drunk mode
+  //applies the drunk mode
   drunkMode(): void {
     console.log("check")
     var counter = 1
@@ -298,7 +304,7 @@ export class VertalerComponent {
   translationShow(): void {
     const translation = document.getElementById('translation');
     if (translation) {
-      translation.textContent = this.translation
+      translation.innerHTML = this.translation
     }
   }
 
