@@ -75,14 +75,14 @@ export class VertalerComponent {
     this.words = this.translate.split(' ');
     this.words = this.words.filter(str => str.trim() !== '');
     var rightSelect = true
-
+    //clears the styling of the translation
     var styleTrans=document.getElementById('translation')
     if (styleTrans) {
       while (styleTrans.classList.length > 0) {
         styleTrans.classList.remove(styleTrans.classList.item(0)!);
       }
     }
-    
+    //checks which language is selected
     switch (this.translateOg) {
       case 'labrador':
         this.words.forEach((word) => {
@@ -130,7 +130,7 @@ export class VertalerComponent {
         }
     }
   }
-
+//search the language which is being inputted
   recognizeL(): void {
     var labrador = true
     var poedel = true
@@ -199,11 +199,12 @@ export class VertalerComponent {
     }
     this.translateForm(this.cnr)
   }
-
+  //translate the input to the right output
   translateText(): void {
     this.words = this.words.filter(str => str.trim() !== '');
     switch (this.translateTo) {
       case 'labrador':
+        //adding the style for the specific case
         document.getElementById('translation')?.classList.add('labrador')
         this.words.forEach((word) => {
           if (this.punctuations.test(word.slice(-1))) {
@@ -257,7 +258,7 @@ export class VertalerComponent {
     this.translationShow()
 
   }
-
+//applies the drunk mode
   drunkMode(): void {
     console.log("check")
     var counter = 1
@@ -292,6 +293,8 @@ export class VertalerComponent {
     this.translation = temp + "Burp!"
     this.translationShow()
   }
+
+  //shows the translation
   translationShow(): void {
     const translation = document.getElementById('translation');
     if (translation) {
