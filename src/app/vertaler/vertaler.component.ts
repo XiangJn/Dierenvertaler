@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,14 +12,13 @@ export class VertalerComponent {
   translate: string = "";
   translateOg: string = "taal";
   translateTo: string = "labrador";
-  translation: string = "";
+  translation: string = " ";
   drunk = false
   wrongInput = "Input komt niet overeen met geselecteerde taal."
   cnr = "Taal kon niet automatisch worden herkend"
   words = this.translate.split(' ');
   options: { value: string, text: string }[] = [];
   punctuations = /[.!?]/;
-
 
   //change the select translateTo
   changeSelect(): void {
@@ -59,7 +58,6 @@ export class VertalerComponent {
   }
   //load the select with the options from the specific category
   loadSelect(): void {
-
     const selectTranslateTo = document.getElementById('translateTo') as HTMLSelectElement;
     selectTranslateTo.innerHTML = '';
     this.options.forEach(option => {
@@ -77,6 +75,14 @@ export class VertalerComponent {
     this.words = this.translate.split(' ');
     this.words = this.words.filter(str => str.trim() !== '');
     var rightSelect = true
+
+    var styleTrans=document.getElementById('translation')
+    if (styleTrans) {
+      while (styleTrans.classList.length > 0) {
+        styleTrans.classList.remove(styleTrans.classList.item(0)!);
+      }
+    }
+    
     switch (this.translateOg) {
       case 'labrador':
         this.words.forEach((word) => {
@@ -198,6 +204,7 @@ export class VertalerComponent {
     this.words = this.words.filter(str => str.trim() !== '');
     switch (this.translateTo) {
       case 'labrador':
+        document.getElementById('translation')?.classList.add('labrador')
         this.words.forEach((word) => {
           if (this.punctuations.test(word.slice(-1))) {
             this.translateForm("woef" + word.slice(-1) + " ")
@@ -207,6 +214,7 @@ export class VertalerComponent {
         })
         return;
       case 'poedel':
+        document.getElementById('translation')?.classList.add('poedel')
         this.words.forEach((word) => {
           if (this.punctuations.test(word.slice(-1))) {
             this.translateForm("woefie" + word.slice(-1) + " ")
@@ -216,6 +224,7 @@ export class VertalerComponent {
         })
         return;
       case 'parkiet':
+        document.getElementById('translation')?.classList.add('parkiet')
         this.words.forEach((word) => {
           if (/^[aeiouAEIOU]/.test(word)) {
             if (this.punctuations.test(word.slice(-1))) {
@@ -291,3 +300,5 @@ export class VertalerComponent {
   }
 
 }
+
+

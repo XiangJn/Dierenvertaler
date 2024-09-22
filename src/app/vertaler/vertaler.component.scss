@@ -85,6 +85,35 @@ button {
     background-color: #004494;
   }
 }
+.labrador {
+  font-weight: bold;
+  display: block;
+  word-wrap: break-word;
+}
+
+.poedel {
+  color: #808080;
+  font-size: 0.8em;
+  display: block;
+  word-wrap: break-word;
+}
+
+.parkiet {
+  display: block;
+  word-wrap: break-word;
+}
+
+.tjilp {
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .parkiet {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 5px;
+  }
+}
 
 // Responsive design
 @media (max-width: 768px) {
@@ -108,3 +137,4 @@ button {
     font-size: 1rem;
   }
 }
+
